@@ -13,7 +13,6 @@
         @include('admin.layouts.fail')
 
         <div class="card-body">
-            <h4 class="card-title">Basic form elements</h4>
             <form
                 class="forms-sample"
                 action="{{ route('doctors.store') }}"

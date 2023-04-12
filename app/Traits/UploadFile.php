@@ -4,6 +4,7 @@ namespace App\Traits;
 
 use Exception;
 use Illuminate\Http\UploadedFile;
+use Illuminate\Support\Facades\Log;
 
 trait UploadFile
 {
@@ -11,14 +12,16 @@ trait UploadFile
      * @param UploadedFile $file
      * @param string $name
      *
-     * @return string
+     * @return string|null
      */
-    public function upload(UploadedFile $file, string $name): string {
+    public function upload(UploadedFile $file, string $name): string|null {
         try {
             $fileName = $this->setName($file, $name);
             $file->storeAs(config('constraint.path.image.avatar'), $fileName);
         } catch (Exception $e) {
-            throw new Exception('Caught exception: ', $e->getMessage());
+            // throw new Exception('Upload file fail : '.$e->getMessage().' name '.$fileName);
+            Log::error('Upload file fail : '.$e->getMessage().' name '.$fileName);
+            return null;
         }
 
         return $fileName;

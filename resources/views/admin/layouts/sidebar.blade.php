@@ -22,7 +22,7 @@
                         class="mdi mdi-dots-vertical"></i></a>
                 <div class="dropdown-menu dropdown-menu-right sidebar-dropdown preview-list"
                     aria-labelledby="profile-dropdown">
-                    <a href="#" class="dropdown-item preview-item">
+                    {{-- <a href="#" class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-settings text-primary"></i>
@@ -42,16 +42,16 @@
                         <div class="preview-item-content">
                             <p class="preview-subject ellipsis mb-1 text-small">Change Password</p>
                         </div>
-                    </a>
+                    </a> --}}
                     <div class="dropdown-divider"></div>
-                    <a href="#" class="dropdown-item preview-item">
+                    <a href="{{ route('logout') }}" class="dropdown-item preview-item">
                         <div class="preview-thumbnail">
                             <div class="preview-icon bg-dark rounded-circle">
                                 <i class="mdi mdi-calendar-today text-success"></i>
                             </div>
                         </div>
                         <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1 text-small">To-do list</p>
+                            <p class="preview-subject ellipsis mb-1 text-small">Logout</p>
                         </div>
                     </a>
                 </div>
@@ -62,12 +62,30 @@
         </li>
         <li class="nav-item menu-items">
             <a class="nav-link"
+                href="#ui-basic"
+                data-bs-toggle="collapse"
+                aria-expanded="false" aria-controls="ui-basic"
+            >
+                <span class="menu-icon">
+                    <i class="mdi mdi-account"></i>
+                </span>
+                <span class="menu-title">Doctors</span>
+                <i class="menu-arrow"></i>
+            </a>
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('doctors.create') }}">Add Doctors</a></li>
+                </ul>
+            </div>
+        </li>
+        {{-- <li class="nav-item menu-items">
+            <a class="nav-link"
                 href="{{ route('doctors.create') }}">
                 <span class="menu-icon">
                     <i class="mdi mdi-file-document-box"></i>
                 </span>
                 <span class="menu-title">Add Doctors</span>
             </a>
-        </li>
+        </li> --}}
     </ul>
 </nav>

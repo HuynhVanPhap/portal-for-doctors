@@ -4,15 +4,18 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Repositories\Doctor\DoctorInterface;
+use App\Services\DoctorService;
 use Illuminate\Http\Request;
 
 class DoctorController extends Controller
 {
     protected $repo;
+    protected $service;
 
     public function __construct()
     {
         $this->repo = app(DoctorInterface::class);
+        $this->service = app(DoctorService::class);
     }
     /**
      * Display a listing of the resource.
@@ -42,11 +45,15 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        $this->repo->createDoctor($request->only([
-            'roomId', 'name', 'phone', 'speciality', 'image'
-        ]));
+        $params = $this->service->handleCreateData($request);
 
-        return back();
+        if (is_null($params)) {
+            return back()->with('fail', 'Tạo mới bác sĩ thất bại !');
+        }
+
+        $this->repo->create($params);
+
+        return back()->with('success', 'Tạo mới Bác sĩ thành công !');
     }
 
     /**

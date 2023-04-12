@@ -2,7 +2,4 @@
 
 namespace App\Repositories\Doctor;
 
-interface DoctorInterface
-{
-
-}
+interface DoctorInterface {}
