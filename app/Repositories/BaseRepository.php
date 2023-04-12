@@ -56,9 +56,9 @@ abstract class BaseRepository implements RepositoryInterface
             ->update($params);
     }
 
-    public function getListPaginates($limit = self::LIMIT)
+    public function getListPaginates(array|string $column = '*', int $limit = self::LIMIT)
     {
-        return $this->model->select()->orderBy('id','DESC')
+        return $this->model->select($column)->orderBy('id','DESC')
             ->paginate($limit);
     }
 
