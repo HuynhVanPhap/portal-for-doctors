@@ -69,12 +69,13 @@
                 <span class="menu-icon">
                     <i class="mdi mdi-account"></i>
                 </span>
-                <span class="menu-title">Doctors</span>
+                <span class="menu-title">Bác sĩ</span>
                 <i class="menu-arrow"></i>
             </a>
             <div class="collapse" id="ui-basic">
                 <ul class="nav flex-column sub-menu">
-                    <li class="nav-item"> <a class="nav-link" href="{{ route('doctors.create') }}">Add Doctors</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('doctors.index') }}">Danh sách</a></li>
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('doctors.create') }}">Thêm mới</a></li>
                 </ul>
             </div>
         </li>
