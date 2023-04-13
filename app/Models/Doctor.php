@@ -14,7 +14,7 @@ class Doctor extends Model
         'id',
         'name',
         'phone',
-        'specialty',
+        'speciality',
         'room_id',
         'image'
     ];

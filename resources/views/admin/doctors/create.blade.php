@@ -35,13 +35,11 @@
                 </div>
                 <div class="form-group">
                     <label for="exampleSelectGender">Speciality</label>
-                    <select class="form-control" id="exampleSelectGender" name="speciality">
-                        <option>---Select---</option>
-                        <option value="skin">Skin</option>
-                        <option value="heart">Heart</option>
-                        <option value="eye">Eye</option>
-                        <option value="nose">Nose</option>
-                    </select>
+                    @include('admin.layouts.selected', [
+                        'name' => 'speciality',
+                        'id' => 'exampleSelectGender',
+                        'data' => config('constraint.speciality'),
+                    ])
                 </div>
                 <div class="form-group">
                     <label>Doctor's Image</label>

@@ -33,12 +33,12 @@ Danh sách
                                     </td>
                                     <td> {{ $doctor->name }} </td>
                                     <td> {{ $doctor->phone }} </td>
-                                    <td> {{ $doctor->specialty }} </td>
+                                    <td> {{ $doctor->speciality }} </td>
                                     <td> {{ $doctor->room_id }} </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
                                             <a
-                                                href="{{ route('doctors.destroy', $doctor->id) }}"
+                                                href="{{ route('doctors.edit', $doctor->id) }}"
                                                 class="btn btn-warning"
                                             >
                                                 Sửa đổi
