@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Doctor;
 use App\Repositories\Doctor\DoctorInterface;
 use App\Services\DoctorService;
 use Illuminate\Http\Request;
@@ -47,7 +48,7 @@ class DoctorController extends Controller
      */
     public function store(Request $request)
     {
-        $params = $this->service->handleCreateData($request);
+        $params = $this->service->processingData($request);
 
         if (is_null($params)) {
             return back()->with('fail', 'Tạo mới bác sĩ thất bại !');
@@ -75,9 +76,9 @@ class DoctorController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Doctor $doctor)
     {
-        //
+        return view('admin.doctors.edit', compact('doctor'));
     }
 
     /**
@@ -89,7 +90,15 @@ class DoctorController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $params = $this->service->processingData($request);
+
+        if (is_null($params)) {
+            return back()->with('fail', 'Cập nhật thông tin bác sĩ thất bại !');
+        }
+
+        $this->repo->update($id, $params);
+
+        return back()->with('success', 'Cập nhật thông tin Bác sĩ thành công !');
     }
 
     /**
