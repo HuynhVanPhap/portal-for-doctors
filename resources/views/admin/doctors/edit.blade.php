@@ -24,7 +24,7 @@
 
                 <div class="form-group row">
                     <div class="col-2">
-                        <img class="img-xl rounded-circle " src="http://localhost/admin/assets/images/faces/face15.jpg" alt="">
+                        <img class="img-lg rounded-circle " src="{{ asset('storage/avatar/'.$doctor->image) }}" alt="">
                     </div>
 
                     <div class="col-10">

@@ -3,7 +3,7 @@
 return [
     'path' => [
         'image' => [
-            'avatar' => 'public/avatar'
+            'avatar' => 'public/avatar/'
         ]
     ],
     'speciality' => [
