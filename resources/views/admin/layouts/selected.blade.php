@@ -5,7 +5,6 @@
     $data = $data ?? []; // [ id, name ]
     $name = $name ?? '';
     $defaultValue = $defaultValue ?? '';
-    $defaultArray = $defaultArray ?? [];
     $default = $default ?? true;
     $id = $id ?? '';
     $class = $class ?? '';
@@ -28,16 +27,12 @@
                     Select your's option
                 </option>
             @endif
-        @foreach($data as $key => $item)
+        @foreach($data as $key => $value)
         <option
-            value="{{$item['id']}}"
-            @if ($multiple)
-                {{ (in_array($item['id'], old($name, $defaultArray))) ? 'selected' : '' }}
-            @else
-                {{ (old($name, $defaultValue) === $item['id']) ? 'selected' : '' }}
-            @endif
+            value="{{ $value }}"
+            {{ (old($name, $defaultValue) === $value) ? 'selected' : '' }}
         >
-            {{ __($item['name']) }}
+            {{ $key }}
         </option>
         @endforeach
         @else

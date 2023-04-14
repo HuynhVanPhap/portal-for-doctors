@@ -175,11 +175,11 @@
         </div> <!-- .bg-light -->
     </div> <!-- .bg-light -->
 
-    @include('user.doctor')
+    @include('user.home.doctor')
 
-    @include('user.latest')
+    @include('user.home.latest')
     <!-- .page-section -->
-    @include('user.appointment')
+    @include('user.home.appointment')
     <!-- .page-section -->
 
     <div class="page-section banner-home bg-image" style="background-image: url(../assets/img/banner-pattern.svg);">

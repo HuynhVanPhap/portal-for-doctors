@@ -25,7 +25,7 @@ class DoctorController extends Controller
      */
     public function index()
     {
-        $doctors = $this->repo->getListPaginates();
+        $doctors = $this->repo->getListPaginates('*', 3);
 
         return view('admin.doctors.index', compact('doctors'));
     }

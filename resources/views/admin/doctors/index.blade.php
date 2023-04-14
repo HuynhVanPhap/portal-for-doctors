@@ -33,7 +33,7 @@ Danh sách
                                     </td>
                                     <td> {{ $doctor->name }} </td>
                                     <td> {{ $doctor->phone }} </td>
-                                    <td> {{ $doctor->speciality }} </td>
+                                    <td> {{ array_search($doctor->speciality, config('constraint.speciality')) }} </td>
                                     <td> {{ $doctor->room_id }} </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">
@@ -65,9 +65,11 @@ Danh sách
                     </tbody>
                 </table>
             </div>
-        </div>
 
-        {!! $doctors->appends(Request::all())->links('admin.layouts.pagination') !!}
+            <div class="col-sm-12 mt-2">
+                {!! $doctors->links() !!}
+            </div>
+        </div>
     </div>
 </div>
 @endsection

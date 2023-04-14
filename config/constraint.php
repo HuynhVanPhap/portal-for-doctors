@@ -12,21 +12,9 @@ return [
         ]
     ],
     'speciality' => [
-        [
-            'id' => 'skin',
-            'name' => 'Skin'
-        ],
-        [
-            'id' => 'heart',
-            'name' => 'Heart'
-        ],
-        [
-            'id' => 'eye',
-            'name' => 'Eye'
-        ],
-        [
-            'id' => 'nose',
-            'name' => 'Nose'
-        ],
+        'Skin' => 'skin',
+        'Heart' => 'heart',
+        'Eye' => 'eye',
+        'Nose' => 'nose'
     ]
 ];
