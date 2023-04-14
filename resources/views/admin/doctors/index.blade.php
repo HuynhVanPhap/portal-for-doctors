@@ -29,7 +29,7 @@ Danh sách
                                 <tr>
                                     <td> {{ ++$key }} </td>
                                     <td class="py-1">
-                                        <img src="{{ asset('admin/assets/images/faces-clipart/pic-1.png') }}" alt="image">
+                                        <img src="{{ asset(config('constraint.link.image.avatar').$doctor->image) }}" alt="image">
                                     </td>
                                     <td> {{ $doctor->name }} </td>
                                     <td> {{ $doctor->phone }} </td>

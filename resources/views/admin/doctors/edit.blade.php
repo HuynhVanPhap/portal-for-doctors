@@ -24,7 +24,7 @@
 
                 <div class="form-group row">
                     <div class="col-2">
-                        <img class="img-lg rounded-circle " src="{{ asset('storage/avatar/'.$doctor->image) }}" alt="">
+                        <img class="img-lg rounded-circle " src="{{ asset(config('constraint.link.image.avatar').$doctor->image) }}" alt="">
                     </div>
 
                     <div class="col-10">
