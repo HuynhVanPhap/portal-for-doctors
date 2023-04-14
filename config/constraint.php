@@ -6,6 +6,11 @@ return [
             'avatar' => 'public/avatar/'
         ]
     ],
+    'link' => [
+        'image' => [
+            'avatar' => 'storage/avatar/'
+        ]
+    ],
     'speciality' => [
         [
             'id' => 'skin',
