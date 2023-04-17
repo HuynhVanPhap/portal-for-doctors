@@ -28,7 +28,11 @@ class HomeController extends Controller
     public function redirect() {
         if (Auth::id()) {
             switch ((int) Auth::user()->usertype) {
-                case 0 : return view('user.home.index'); break;
+                case 0 :
+                    $doctors = $this->doctorRepo->getListByTake(6);
+
+                    return view('user.home.index', compact('doctors'));
+                    break;
                 case 1 : return view('admin.home'); break;
                 default : return view('dashboard'); break;
             }

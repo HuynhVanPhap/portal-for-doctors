@@ -16,5 +16,10 @@ return [
         'Heart' => 'heart',
         'Eye' => 'eye',
         'Nose' => 'nose'
+    ],
+    'appointment_status' => [
+        'In Proccessing',
+        'Proccessing',
+        'Done'
     ]
 ];
