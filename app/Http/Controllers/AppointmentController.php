@@ -2,8 +2,8 @@
 
 namespace App\Http\Controllers;
 
-use App\Repositories\Appoitment\AppoitmentInterface;
-use App\Services\AppoitmentService;
+use App\Repositories\Appointment\AppointmentInterface;
+use App\Services\AppointmentService;
 use Illuminate\Http\Request;
 
 class AppointmentController extends Controller
@@ -13,8 +13,8 @@ class AppointmentController extends Controller
 
     public function __construct()
     {
-        $this->repo = app(AppoitmentInterface::class);
-        $this->service = app(AppoitmentService::class);
+        $this->repo = app(AppointmentInterface::class);
+        $this->service = app(AppointmentService::class);
     }
     /**
      * Display a listing of the resource.
@@ -97,6 +97,10 @@ class AppointmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!$this->repo->delete($id)) {
+            return back()->with('fail', 'Hủy bỏ cuộc hẹn thất bại !');
+        }
+
+        return back()->with('success', 'Hủy bỏ cụôc hẹn thành công !');
     }
 }

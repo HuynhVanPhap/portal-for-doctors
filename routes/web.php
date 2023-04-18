@@ -19,7 +19,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'redirect']);
-Route::resource('/appoitments', AppointmentController::class);
+Route::get('/my-appointment', [HomeController::class, 'myAppointmentPage'])->name('my.appointment');
+Route::resource('/appointments', AppointmentController::class);
 Route::resource('/doctors', DoctorController::class);
 
 Route::middleware([
