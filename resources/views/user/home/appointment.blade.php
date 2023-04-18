@@ -7,7 +7,7 @@
         <form
             class="main-form"
             method="POST"
-            action="{{ route('appoitments.store') }}"
+            action="{{ route('appointments.store') }}"
         >
             @csrf
 

@@ -33,7 +33,7 @@ Danh sách
                                     </td>
                                     <td> {{ $doctor->name }} </td>
                                     <td> {{ $doctor->phone }} </td>
-                                    <td> {{ array_search($doctor->speciality, config('constraint.speciality')) }} </td>
+                                    <td> {{ $doctor->speciality }} </td>
                                     <td> {{ $doctor->room_id }} </td>
                                     <td>
                                         <div class="btn-group" role="group" aria-label="Basic example">

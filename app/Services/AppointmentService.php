@@ -5,7 +5,7 @@ namespace App\Services;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class AppoitmentService
+class AppointmentService
 {
     public function processingData(Request $request): array|null {
         $params = $request->only([
