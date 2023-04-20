@@ -23,15 +23,45 @@
 
                 <div class="form-group">
                     <label for="exampleInputName1">Room No</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Input the room number" name="room_id">
+                    <input
+                        type="text"
+                        class="form-control  {{ $errors->has('room_id') ? 'is-invalid' : '' }}"
+                        id="exampleInputName1"
+                        placeholder="Input the room number"
+                        name="room_id"
+                    >
+
+                    @if ($errors->has('room_id'))
+                        <span id="exampleInputPassword1-error" class="error invalid-feedback">{{ $errors->first('room_id') }}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleInputName1">Doctor's Name</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Name" name="name">
+                    <input
+                        type="text"
+                        class="form-control  {{ $errors->has('name') ? 'is-invalid' : '' }}"
+                        id="exampleInputName1"
+                        placeholder="Name"
+                        name="name"
+                    >
+
+                    @if ($errors->has('name'))
+                        <span id="exampleInputPassword1-error" class="error invalid-feedback">{{ $errors->first('name') }}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleInputEmail3">Phone</label>
-                    <input type="number" class="form-control" id="exampleInputEmail3" placeholder="Phone" name="phone">
+                    <input
+                        type="number"
+                        class="form-control  {{ $errors->has('phone') ? 'is-invalid' : '' }}"
+                        id="exampleInputEmail3"
+                        placeholder="Phone"
+                        name="phone"
+                    >
+
+                    @if ($errors->has('phone'))
+                        <span id="exampleInputPassword1-error" class="error invalid-feedback">{{ $errors->first('phone') }}</span>
+                    @endif
                 </div>
                 <div class="form-group">
                     <label for="exampleSelectGender">Speciality</label>
@@ -43,13 +73,20 @@
                 </div>
                 <div class="form-group">
                     <label>Doctor's Image</label>
-                    <input type="file" name="image" class="file-upload-default">
+                    <input
+                        type="file"
+                        name="image"
+                        class="file-upload-default {{ $errors->has('image') ? 'is-invalid' : '' }}">
                     <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
+                        <input type="text" class="form-control file-upload-info {{ $errors->has('image') ? 'is-invalid' : '' }}" disabled="" placeholder="Upload Image">
                         <span class="input-group-append">
                             <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
                         </span>
                     </div>
+
+                    @if ($errors->has('image'))
+                        <span id="exampleInputPassword1-error" class="error invalid-feedback">{{ $errors->first('image') }}</span>
+                    @endif
                 </div>
 
                 <button type="submit" class="btn btn-primary me-2">Submit</button>
