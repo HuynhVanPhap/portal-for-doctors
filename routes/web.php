@@ -16,6 +16,10 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Route::get('/crfs', function () {
+    echo csrf_token();
+});
+
 Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/home', [HomeController::class, 'redirect']);

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAppointmentRequest;
 use App\Repositories\Appointment\AppointmentInterface;
 use App\Services\AppointmentService;
 use Illuminate\Http\Request;
@@ -42,7 +43,7 @@ class AppointmentController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(StoreAppointmentRequest $request)
     {
         $params = $this->service->processingData($request);
 
