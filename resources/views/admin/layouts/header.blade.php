@@ -1,9 +1,18 @@
-<div class="page-header">
-    <h3 class="page-title"> Form elements </h3>
-    <nav aria-label="breadcrumb">
-        <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="#">Forms</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Form elements</li>
-        </ol>
-    </nav>
-</div>
+@if (count($breadcrumbs))
+    <div class="page-header">
+        <h3 class="page-title"> {{ $breadcrumbs->pluck('title')->last() }} </h3>
+        <nav aria-label="breadcrumb">
+            <ol class="breadcrumb">
+                @foreach ($breadcrumbs as $breadcrumb)
+
+                    @if ($breadcrumb->url && !$loop->last)
+                        <li class="breadcrumb-item"><a href="{{ $breadcrumb->url }}">{{ $breadcrumb->title }}</a></li>
+                    @else
+                        <li class="breadcrumb-item active">{{ $breadcrumb->title }}</li>
+                    @endif
+
+                @endforeach
+            </ol>
+        </nav>
+    </div>
+@endif

@@ -5,7 +5,7 @@
 @endsection
 
 @section('content')
-@include('admin.layouts.header')
+{{ Breadcrumbs::render('doctors.edit', $doctor) }}
 
 <div class="col-12 grid-margin stretch-card">
     <div class="card">
