@@ -5,7 +5,7 @@ Danh sách
 @endsection
 
 @section('content')
-@include('admin.layouts.header')
+{{ Breadcrumbs::render('doctors.index') }}
 
 <div class="col-lg-12 grid-margin stretch-card">
     <div class="card">

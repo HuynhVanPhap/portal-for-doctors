@@ -29,7 +29,7 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
-    Route::get('/home', [HomeController::class, 'redirect']);
+    Route::get('/home', [HomeController::class, 'redirect'])->name('home');
     Route::resource('/doctors', DoctorController::class);
     Route::resource('/appointments', AppointmentController::class)->only(['destroy']);
     Route::get('/my-appointment', [HomeController::class, 'myAppointmentPage'])->name('my.appointment');
