@@ -16,16 +16,9 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/crfs', function () {
-    echo csrf_token();
-});
-
 Route::get('/', [HomeController::class, 'index']);
 
-Route::get('/home', [HomeController::class, 'redirect']);
-Route::get('/my-appointment', [HomeController::class, 'myAppointmentPage'])->name('my.appointment');
-Route::resource('/appointments', AppointmentController::class);
-Route::resource('/doctors', DoctorController::class);
+Route::resource('/appointments', AppointmentController::class)->only(['store']);
 
 Route::middleware([
     'auth:sanctum',
@@ -35,4 +28,9 @@ Route::middleware([
     Route::get('/dashboard', function () {
         return view('dashboard');
     })->name('dashboard');
+
+    Route::get('/home', [HomeController::class, 'redirect']);
+    Route::resource('/doctors', DoctorController::class);
+    Route::resource('/appointments', AppointmentController::class)->only(['destroy']);
+    Route::get('/my-appointment', [HomeController::class, 'myAppointmentPage'])->name('my.appointment');
 });
