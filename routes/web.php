@@ -29,8 +29,10 @@ Route::middleware([
         return view('dashboard');
     })->name('dashboard');
 
+    Route::middleware('is.admin.manager')->group(function () {
+        Route::resource('/doctors', DoctorController::class);
+    });
     Route::get('/home', [HomeController::class, 'redirect'])->name('home');
-    Route::resource('/doctors', DoctorController::class);
     Route::resource('/appointments', AppointmentController::class)->only(['destroy']);
     Route::get('/my-appointment', [HomeController::class, 'myAppointmentPage'])->name('my.appointment');
 });

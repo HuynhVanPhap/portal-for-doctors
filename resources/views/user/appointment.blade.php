@@ -1,7 +1,7 @@
 @extends('user.layouts.master')
 
 @section('title')
-Appointment
+    Appointment
 @endsection
 
 @section('content')

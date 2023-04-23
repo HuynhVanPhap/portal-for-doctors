@@ -31,13 +31,13 @@ class HomeController extends Controller
     public function redirect() {
         if (Auth::id()) {
             switch ((int) Auth::user()->usertype) {
-                case 0 :
+                case config('constraint.auth.user') :
                     $doctors = $this->doctorRepo->getListByTake(6);
 
                     return view('user.home.index', compact('doctors'));
                     break;
-                case 1 : return view('admin.home'); break;
-                default : return view('dashboard'); break;
+                case config('constraint.auth.admin') : return view('admin.home'); break;
+                default : return redirect()->back();
             }
         } else {
             return redirect()->back();
@@ -45,7 +45,7 @@ class HomeController extends Controller
     }
 
     public function myAppointmentPage() {
-        $appointments = $this->appointmentRepo->getListPaginates('*', 3);
+        $appointments = $this->appointmentRepo->getUserAppointments(Auth::user()->id, 5);
 
         return view('user.appointment', compact('appointments'));
     }

@@ -1,6 +1,10 @@
 <?php
 
 return [
+    'auth' => [
+        'admin' => 1,
+        'user' => 0
+    ],
     'path' => [
         'image' => [
             'avatar' => 'public/avatar/'
