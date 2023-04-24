@@ -24,7 +24,9 @@ class AppointmentController extends Controller
      */
     public function index()
     {
-        //
+        $appointments = $this->repo->getListPaginates('*', 10);
+
+        return view('admin.appointments.index', compact('appointments'));
     }
 
     /**

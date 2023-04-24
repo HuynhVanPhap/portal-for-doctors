@@ -31,4 +31,14 @@ class Appointment extends Model
     {
         return $this->belongsTo(Doctor::class, 'doctor_id', 'id');
     }
+
+    /**
+     * Get the user that owns the Appointment
+     *
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user(): BelongsTo
+    {
+        return $this->belongsTo(User::class, 'user_id', 'id');
+    }
 }

@@ -26,6 +26,22 @@ Breadcrumbs::for('doctors.edit', function ($trail, $doctor) {
     $trail->push($doctor->name, route('doctors.edit', $doctor->id));
 });
 
+/**
+ * Trang chủ / Cuộc hẹn
+ */
+Breadcrumbs::for('appointments', function ($trail) {
+    $trail->parent('home');
+    $trail->push('Cuộc hẹn', route('home'));
+});
+
+/**
+ * Trang chủ / Cuộc hẹn / Danh sách
+ */
+Breadcrumbs::for('appointments.index', function ($trail) {
+    $trail->parent('appointments');
+    $trail->push('Danh sách', route('appointments.index'));
+});
+
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function ($trail, $category) {
 //     $trail->parent('blog');

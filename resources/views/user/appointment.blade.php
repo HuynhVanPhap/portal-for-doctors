@@ -19,7 +19,6 @@
                     <th scope="col">Doctor</th>
                     <th scope="col">Speciality</th>
                     <th scope="col">Date</th>
-                    <th scope="col">Message</th>
                     <th scope="col">Status</th>
                     <th scope="col">Cancel</th>
                 </tr>
@@ -28,11 +27,10 @@
                 @if (!blank($appointments))
                     @foreach ($appointments as $key => $appointment)
                         <tr>
-                            <th scope="row">{{ $key }}</th>
+                            <th scope="row">{{ ++$key }}</th>
                             <td>{{ $appointment->doctor->name }}</td>
                             <td>{{ $appointment->doctor->speciality }}</td>
                             <td>{{ $appointment->date }}</td>
-                            <td>{{ $appointment->message }}</td>
                             <td><span class="text-info">{{ $appointment->status }}</span></td>
                             <td>
                                 <form
