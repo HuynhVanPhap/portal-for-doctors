@@ -14,7 +14,7 @@
                         <span class="count bg-success"></span>
                     </div>
                     <div class="profile-name">
-                        <h5 class="mb-0 font-weight-normal">Henry Klein</h5>
+                        <h5 class="mb-0 font-weight-normal">{{ Auth::user()->name }}</h5>
                         <span>Gold Member</span>
                     </div>
                 </div>
@@ -44,16 +44,23 @@
                         </div>
                     </a> --}}
                     <div class="dropdown-divider"></div>
-                    <a href="{{ route('logout') }}" class="dropdown-item preview-item">
-                        <div class="preview-thumbnail">
-                            <div class="preview-icon bg-dark rounded-circle">
-                                <i class="mdi mdi-calendar-today text-success"></i>
+                    <form
+                        action="{{ route('logout', Auth::user()->id) }}"
+                        method="POST"
+                    >
+                        @csrf
+
+                        <button class="dropdown-item preview-item">
+                            <div class="preview-thumbnail">
+                                <div class="preview-icon bg-dark rounded-circle">
+                                    <i class="mdi mdi-calendar-today text-success"></i>
+                                </div>
                             </div>
-                        </div>
-                        <div class="preview-item-content">
-                            <p class="preview-subject ellipsis mb-1 text-small">Logout</p>
-                        </div>
-                    </a>
+                            <div class="preview-item-content">
+                                <p class="preview-subject ellipsis mb-1 text-small">Logout</p>
+                            </div>
+                        </button>
+                    </form>
                 </div>
             </div>
         </li>

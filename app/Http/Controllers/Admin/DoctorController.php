@@ -111,6 +111,10 @@ class DoctorController extends Controller
      */
     public function destroy($id)
     {
-        //
+        if (!$this->repo->delete($id)) {
+            return back()->with('fail', 'Xóa dữ liệu bác sĩ thất bại !');
+        }
+
+        return back()->with('success', 'Xóa dữ liệu bác sĩ thành công !');
     }
 }
