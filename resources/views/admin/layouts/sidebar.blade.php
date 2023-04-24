@@ -67,6 +67,12 @@
         <li class="nav-item nav-category">
             <span class="nav-link">Navigation</span>
         </li>
+
+        <!---
+            * Bác sĩ
+            * Bác sĩ > Danh sách
+            * Bác sĩ > Thêm mới
+        --->
         <li class="nav-item menu-items">
             <a class="nav-link"
                 href="#ui-basic"
@@ -86,14 +92,40 @@
                 </ul>
             </div>
         </li>
-        {{-- <li class="nav-item menu-items">
+
+        <!---
+            * Cuộc hẹn
+            * Cuộc hẹn > Danh sách
+        --->
+        <li class="nav-item menu-items">
             <a class="nav-link"
-                href="{{ route('doctors.create') }}">
+                href="#ui-basic"
+                data-bs-toggle="collapse"
+                aria-expanded="false" aria-controls="ui-basic"
+            >
                 <span class="menu-icon">
-                    <i class="mdi mdi-file-document-box"></i>
+                    <i class="mdi mdi-calendar-today"></i>
                 </span>
-                <span class="menu-title">Add Doctors</span>
+                <span class="menu-title">Cuộc hẹn</span>
+                <i class="menu-arrow"></i>
             </a>
-        </li> --}}
+            <div class="collapse" id="ui-basic">
+                <ul class="nav flex-column sub-menu">
+                    <li class="nav-item"> <a class="nav-link" href="{{ route('appointments.index') }}">Danh sách</a></li>
+                </ul>
+            </div>
+        </li>
+
+        {{--
+            <li class="nav-item menu-items">
+                <a class="nav-link"
+                    href="{{ route('doctors.create') }}">
+                    <span class="menu-icon">
+                        <i class="mdi mdi-file-document-box"></i>
+                    </span>
+                    <span class="menu-title">Add Doctors</span>
+                </a>
+            </li>
+        --}}
     </ul>
 </nav>

@@ -31,6 +31,7 @@ Route::middleware([
 
     Route::middleware('is.admin.manager')->group(function () {
         Route::resource('/doctors', DoctorController::class);
+        Route::resource('/appointments', AppointmentController::class)->only(['index', 'edit']);
     });
     Route::get('/home', [HomeController::class, 'redirect'])->name('home');
     Route::resource('/appointments', AppointmentController::class)->only(['destroy']);
