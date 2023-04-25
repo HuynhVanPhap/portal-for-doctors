@@ -1,5 +1,7 @@
 <?php
 
+use App\Models\Appointment;
+use App\Models\Doctor;
 use DaveJamesMiller\Breadcrumbs\Facades\Breadcrumbs;
 
 Breadcrumbs::for('home', function ($trail) {
@@ -21,7 +23,7 @@ Breadcrumbs::for('doctors.create', function ($trail) {
     $trail->push('Thêm mới', route('doctors.create'));
 });
 
-Breadcrumbs::for('doctors.edit', function ($trail, $doctor) {
+Breadcrumbs::for('doctors.edit', function ($trail, Doctor $doctor) {
     $trail->parent('doctors.index');
     $trail->push($doctor->name, route('doctors.edit', $doctor->id));
 });
@@ -41,6 +43,15 @@ Breadcrumbs::for('appointments.index', function ($trail) {
     $trail->parent('appointments');
     $trail->push('Danh sách', route('appointments.index'));
 });
+
+/**
+ * Trang chủ / Cuộc hẹn / [Appointment]
+ */
+Breadcrumbs::for('appointments.edit', function ($trail, Appointment $appointment) {
+    $trail->parent('appointments');
+    $trail->push($appointment->name, route('appointments.edit', $appointment->id));
+});
+
 
 // Home > Blog > [Category]
 // Breadcrumbs::for('category', function ($trail, $category) {

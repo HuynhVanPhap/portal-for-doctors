@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreAppointmentRequest;
+use App\Models\Appointment;
 use App\Repositories\Appointment\AppointmentInterface;
 use App\Services\AppointmentService;
 use Illuminate\Http\Request;
@@ -75,9 +76,9 @@ class AppointmentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Appointment $appointment)
     {
-        //
+        return view('admin.appointments.edit', compact('appointment'));
     }
 
     /**
@@ -89,7 +90,9 @@ class AppointmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $this->repo->update($id, $request->all('status'));
+
+        return back()->with('success', 'Cập nhật thông tin Bác sĩ thành công !');
     }
 
     /**

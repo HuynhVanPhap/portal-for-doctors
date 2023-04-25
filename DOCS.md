@@ -12,3 +12,5 @@
     [2] create/edit > routes/breadcrumbs.php
     [3] render > {{ Breadcrumbs::render([name_breadcrumbs]) }}
     [4] create config/breadcrumbs.php > php artisan vendor:publish --provider="DaveJamesMiller\Breadcrumbs\BreadcrumbsServiceProvider"
+
+[?] assign separate middleware to each method of a resource in laravel
