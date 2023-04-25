@@ -29,7 +29,7 @@
                                 <tr>
                                     <td> {{ ++$key }} </td>
                                     <td> {{ $appointment->name }}</td>
-                                    <td> {{ $appointment->doctor->name.' / '.$appointment->doctor->speciality }}
+                                    <td> {{ $appointment->doctor->name.' / '.$appointment->doctor->speciality }}</td>
                                     <td> {{ $appointment->date }}</td>
                                     <td> {{ $appointment->user->name ?? '' }}</td>
                                     <td><span class="text-info">{{ $appointment->status }}</span></td>

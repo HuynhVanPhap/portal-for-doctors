@@ -80,6 +80,10 @@ class DoctorController extends Controller
      */
     public function edit(Doctor $doctor)
     {
+        if (blank($doctor)) {
+            abort(404);
+        }
+
         return view('admin.doctors.edit', compact('doctor'));
     }
 

@@ -22,8 +22,8 @@ return [
         'Nose' => 'nose'
     ],
     'appointment_status' => [
-        'In Proccessing',
-        'Proccessing',
-        'Done'
+        'In Proccessing' => 0,
+        'Proccessing' => 1,
+        'Done' => 2
     ]
 ];

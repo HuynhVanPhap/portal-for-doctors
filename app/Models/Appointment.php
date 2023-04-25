@@ -18,7 +18,7 @@ class Appointment extends Model
 
     protected function status(): Attribute {
         return Attribute::make(
-            get: fn (int $value) => config('constraint.appointment_status')[$value]
+            get: fn (int $value) => array_flip(config('constraint.appointment_status'))[$value]
         );
     }
 
