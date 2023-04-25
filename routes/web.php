@@ -1,5 +1,8 @@
 <?php
 
+use App\Http\Controllers\Admin\DoctorController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\HomeController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -13,6 +16,24 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('/', [HomeController::class, 'index']);
+
+Route::resource('/appointments', AppointmentController::class)->only(['store']);
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified'
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+
+    Route::middleware('is.admin.manager')->group(function () {
+        Route::resource('/doctors', DoctorController::class);
+        Route::resource('/appointments', AppointmentController::class)->only(['index', 'edit', 'update']);
+    });
+    Route::get('/home', [HomeController::class, 'redirect'])->name('home');
+    Route::resource('/appointments', AppointmentController::class)->only(['destroy']);
+    Route::get('/my-appointment', [HomeController::class, 'myAppointmentPage'])->name('my.appointment');
 });
